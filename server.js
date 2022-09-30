@@ -2,7 +2,7 @@
 const { randomUUID } = require('crypto');
 const express = require('express');
 const path = require('path');
-const { readFromFile, writeToFile, readAndAppend } = require('./helpers/fsUtils')
+const { readFromFile, writeToFile, readAndAppend } = require('./utils/fsUtils');
 
 const app = express();
 
