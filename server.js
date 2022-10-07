@@ -1,8 +1,12 @@
 //require packages
-const { randomUUID } = require('crypto');
+//clearly defined function that is a part of node
+// const { randomUUID } = require('crypto');
+
 const express = require('express');
 const path = require('path');
 const { readFromFile, writeToFile, readAndAppend } = require('./utils/fsUtils');
+//added because test version of node must not include randomUUID
+const uuid = require ('./utils/uuid')
 
 const app = express();
 
@@ -35,7 +39,7 @@ app.get('/api/notes', (req, resp) => {
 app.post('/api/notes', (req, resp) => {
     if(req.body) {
         const newNote = {
-            id: randomUUID(),
+            id: uuid(),
             title: req.body.title,
             text: req.body.text
         }
